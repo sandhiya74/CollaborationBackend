@@ -23,7 +23,7 @@ public class AppliedJobsDAOImpl implements IAppliedJobsDAO {
 	SessionFactory sessionfactory;
 	
 	@Override
-	public boolean addAppliedJobs(AppliedJobs appliedjobs) {
+	public boolean AppliedJobs(AppliedJobs appliedjobs) {
 		try
 		{
 			sessionfactory.getCurrentSession().save(appliedjobs);
@@ -36,7 +36,7 @@ public class AppliedJobsDAOImpl implements IAppliedJobsDAO {
 
 	
 	@Override
-	public ArrayList<AppliedJobs> allAppliedJObs(Jobs jobs) {
+	public ArrayList<AppliedJobs> allAppliedJobs(Jobs jobs) {
 		try {
 			ArrayList<AppliedJobs> jobslist = (ArrayList<AppliedJobs>) sessionfactory.getCurrentSession()
 					.createCriteria(Jobs.class).add(Restrictions.eq("Jobs",jobs)).list();

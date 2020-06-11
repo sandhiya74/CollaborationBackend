@@ -7,7 +7,7 @@ import com.niit.Collaboration.Model.Jobs;
 
 public interface IJobsDAO {
 
-public boolean addJobs(Jobs jobs);
+    public boolean addJobs(Jobs jobs);
 	
 	public boolean updateJobs(Jobs jobs);
 	

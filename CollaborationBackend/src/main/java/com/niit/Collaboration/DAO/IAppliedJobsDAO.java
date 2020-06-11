@@ -8,9 +8,9 @@ import com.niit.Collaboration.Model.Jobs;
 
 public interface IAppliedJobsDAO {
 
-   public boolean addAppliedJobs(AppliedJobs appliedjobs);
+   public boolean AppliedJobs(AppliedJobs appliedjobs);
 	
-	public ArrayList<AppliedJobs> allAppliedJObs(Jobs jobs);
+	public ArrayList<AppliedJobs> allAppliedJobs(Jobs jobs);
 	
 	public ArrayList<AppliedJobs> myAppliedJobs(Customer customer);
 	

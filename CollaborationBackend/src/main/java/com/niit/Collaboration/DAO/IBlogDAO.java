@@ -6,7 +6,7 @@ import com.niit.Collaboration.Model.Blog;
 
 public interface IBlogDAO {
 	
-public boolean addBlog(Blog blog);
+    public boolean addBlog(Blog blog);
 	
 	public boolean updateBlog(Blog blog);
 	
