@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+
+
 @Entity
 public class Blog {
 	
@@ -27,14 +29,14 @@ public class Blog {
 	@Column(nullable=false,columnDefinition="text")
 	String blog_Content;
 	
-	@Column(nullable=false,columnDefinition="boolean defalut false")
+	@Column(nullable=false,columnDefinition="boolean default false")
 	boolean blog_Status;
 	
 	@ManyToOne
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	Customer customer;
 	
-	@Column(nullable=false,columnDefinition ="default getdate()" )
+	@Column(nullable=false,columnDefinition ="date default sysdate()")
 	 @Temporal(TemporalType.DATE)
 	Date posted_Date;
 

@@ -29,7 +29,7 @@ public class AppliedJobs {
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	Customer customer;
 	
-	@Column(nullable=false,columnDefinition ="default getdate()" )
+	@Column(nullable=false,columnDefinition ="date default sysdate()" )
 	 @Temporal(TemporalType.DATE)
 	Date applied_Date;
 
