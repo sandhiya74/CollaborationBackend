@@ -1,11 +1,14 @@
 package com.niit.CollaborationBackend.DAOImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Collaboration.DAO.ICustomerDAO;
 import com.niit.Collaboration.Model.Customer;
@@ -25,7 +28,6 @@ public class CustomerDAOImpl implements ICustomerDAO {
 		} catch (Exception e) {
 			return false;
 		}
-		
 	}
 
 	@Override
@@ -36,7 +38,6 @@ public class CustomerDAOImpl implements ICustomerDAO {
 		} catch (Exception e) {
 			return false;
 		}
-		
 	}
 
 	@Override
@@ -46,6 +47,21 @@ public class CustomerDAOImpl implements ICustomerDAO {
 					.add(Restrictions.eq("cust_Emailid",emailid)).uniqueResult();
 			return customer;
 		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Customer> selectAllCustomer() {
+		try
+		  {
+			  ArrayList<Customer> customer= (ArrayList<Customer>)sessionfactory.getCurrentSession()
+					  .createCriteria(Customer.class).list();
+			  return customer;
+		  }
+		  catch(Exception e) {
+			  
+		  
 			return null;
 		}
 	}

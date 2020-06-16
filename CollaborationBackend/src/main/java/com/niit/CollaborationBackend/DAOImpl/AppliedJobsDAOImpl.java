@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.Collaboration.DAO.IAppliedJobsDAO;
 import com.niit.Collaboration.Model.AppliedJobs;
 import com.niit.Collaboration.Model.Customer;
-import com.niit.Collaboration.Model.Forum;
+
 import com.niit.Collaboration.Model.Jobs;
 
 @Repository("appliedjobsdao")
