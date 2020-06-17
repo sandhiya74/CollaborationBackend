@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.Collaboration.DAO.ICustomerDAO;
@@ -16,7 +17,7 @@ public class EmployerController {
 
 	@Autowired
 	ICustomerDAO customerdao;
-	
+	@GetMapping("/allcustomer")
 	ResponseEntity<List<Customer>> selectAllCustomer()
 	{
 		ArrayList<Customer> custlist=(ArrayList<Customer>)customerdao.selectAllCustomer();
