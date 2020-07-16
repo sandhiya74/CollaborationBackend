@@ -1,0 +1,223 @@
+<style>
+main {
+	padding: 40px 15px;
+	background: linear-gradient(4deg, #5f13869e 17%, #0e73e0a8 69%),
+		url(http://eskipaper.com/images/bubbles-wallpaper-10.jpg);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.form-group label {
+	font-weight: 500;
+}
+
+.main-form {
+	margin: 0 auto;
+}
+
+.card-header {
+	background-color: transparent;
+	text-align: center;
+}
+
+.btn-lg.col-md-6 {
+	margin: 10px auto !important;
+	display: block;
+}
+
+.form-content {
+	margin-bottom: 60px;
+}
+
+.form-content .form-control {
+	border-radius: 0;
+}
+
+.container.form-content .btn {
+	min-width: 140px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	height: 40px;
+	text-align: center;
+	border: none;
+	background-size: 300% 100%;
+	border-radius: 50px;
+	moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+
+.container.form-content .btn {
+	background-image: linear-gradient(to right, #dc3545, #FCEE21, #dc3545, #dc3545);
+	box-shadow: 0 4px 15px 0 rgba(2, 2, 2, 0.16);
+	box-shadow: 0 4px 15px 0 rgba(2, 2, 2, 0.16);
+}
+
+.container.form-content .btn:hover {
+	background-position: 100% 0;
+	moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+
+.header_content h2 {
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.header_content {
+	text-align: center;
+	s padding: 40px;
+	color: #fff;
+}
+</style>
+<script>
+	$(function() {
+		$('.button-checkbox')
+				.each(
+						function() {
+
+							// Settings
+							var $widget = $(this), $button = $widget
+									.find('button'), $checkbox = $widget
+									.find('input:checkbox'), color = $button
+									.data('color'), settings = {
+								on : {
+									icon : 'glyphicon glyphicon-check'
+								},
+								off : {
+									icon : 'glyphicon glyphicon-unchecked'
+								}
+							};
+
+							// Event Handlers
+							$button.on('click', function() {
+								$checkbox.prop('checked', !$checkbox
+										.is(':checked'));
+								$checkbox.triggerHandler('change');
+								updateDisplay();
+							});
+							$checkbox.on('change', function() {
+								updateDisplay();
+							});
+
+							// Actions
+							function updateDisplay() {
+								var isChecked = $checkbox.is(':checked');
+
+								// Set the button's state
+								$button.data('state', (isChecked) ? "on"
+										: "off");
+
+								// Set the button's icon
+								$button
+										.find('.state-icon')
+										.removeClass()
+										.addClass(
+												'state-icon '
+														+ settings[$button
+																.data('state')].icon);
+
+								// Update the button's color
+								if (isChecked) {
+									$button.removeClass('btn-default')
+											.addClass(
+													'btn-' + color + ' active');
+								} else {
+									$button.removeClass(
+											'btn-' + color + ' active')
+											.addClass('btn-default');
+								}
+							}
+
+							// Initialization
+							function init() {
+
+								updateDisplay();
+
+								// Inject the icon if applicable
+								if ($button.find('.state-icon').length == 0) {
+									$button
+											.prepend('<i class="state-icon '
+													+ settings[$button
+															.data('state')].icon
+													+ '"></i>');
+								}
+							}
+							init();
+						});
+	});
+</script>
+<main>
+<div class="container" ng-controller="rcontrol as r">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form role="form" ng-submit="r.createUser()">
+			<h2>Please Sign Up <small>It's free and always will be.</small></h2>
+			<hr class="colorgraph">
+			<div class="col-12">
+			<div class="form-group">
+				<input type="text" name="name" id="name" class="form-control input-lg" placeholder="Name" tabindex="1"
+                        ng-model="r.customer.cust_Name">
+                        </div>
+                        <div class="form-group">
+				<input type="text" name="name" id="last_name" class="form-control input-lg" placeholder="Userrole"tabindex="1"
+                        ng-model="r.customer.cust_Role">
+                        </div>
+			<div class="form-group">
+				<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email"tabindex="1"
+                        ng-model="r.customer.cust_Email">
+                        </div>
+			<div class="form-group">
+				<input type="text" name="phno" id="phno" class="form-control input-lg" placeholder="Phno" tabindex="1"
+				  ng-model="r.customer.cust_Phno">
+			</div>
+			<div class="form-group">
+				<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password"
+				 tabindex="4" ng-model="r.customer.cust_Password">
+			
+			</div>
+			</div>
+			
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-12"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+				
+			</div>
+			
+			
+		</form>
+	</div>
+</div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+			</div>
+			<div class="modal-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>

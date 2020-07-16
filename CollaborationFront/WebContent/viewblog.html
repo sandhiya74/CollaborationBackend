@@ -1,0 +1,19 @@
+<div class="container" ng-controller="bcontrol as b">
+<div class="span8" ng-repeat="cust in b.customers">
+
+   
+    
+ <div class="row">
+                            <div class="col-sm-9">
+                                <h3 class="pull-left">{{cust.blog_Title}}</h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6 class="pull-right">
+                                <small><em>POSTED DATE:{{cust.posted_Date}}</em></small>
+                                </h6>
+                            </div>
+                        </div>
+    <p>{{cust.blog_Content}}</p>
+   <a class="btn" ng-click="b.approveBlog(cust.blog_Id)" href= "">Approve</a>
+</div>
+</div>
